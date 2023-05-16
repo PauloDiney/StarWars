@@ -15,31 +15,18 @@
         <source src="fundo.mp4" type="video/mp4">
     </video>
     <div class="cima">
-
-
-
         <img src="star.png">
     </div>
     <div class="alinhar">
         <div class="baixo">
-
             <ul class="nave">
-                <li><a href="personagem.php">Personagens</a></li>
-                <li> <a href="">Filmes</a></li>
-                <li><a href=""> Planetas</a></li>
-                <li><a href="">Especies</a></li>
-                <li><a href="">Veiculos</a></li>
-                <li><a href="">Naves</a></li>
+                <li><form method="post" action="tudo.php"><a><input type="submit" style="background-color: transparent;border: none;cursor:pointer;" name="personagem" value="Personagens"></a></li>
+                <li><form method="post" action="tudo.php"><a><input type="submit"style="background-color: transparent;border: none;cursor:pointer;" name="filme" value="Filmes"></a></li>
+                <li><form method="post" action="tudo.php"><a><input type="submit" style="background-color: transparent;border: none;cursor:pointer;" name="planeta" value="Planeta"></a></li>
+                <li><form method="post" action="tudo.php"><a><input type="submit" style="background-color: transparent;border: none;cursor:pointer;" name="especies" value="Especies"></a></li>
+                <li><form method="post" action="tudo.php"><a><input type="submit" style="background-color: transparent;border: none;cursor:pointer;" name="veiculos" value="Veiculos"></a></li>
+                <li><form method="post" action="tudo.php"><a><input type="submit" style="background-color: transparent;border: none;cursor:pointer;" name="naves" value="Naves"></a></li>
             </ul>
-
-
-
-
-
-
-
-
-
         </div>
     </div>
 
