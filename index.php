@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <title>STARS WARS</title>
 </head>
-
+§
 <body>
 
     <video id="background-video" autoplay muted loop>

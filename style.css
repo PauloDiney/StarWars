@@ -89,6 +89,7 @@ li a:hover {
     margin-right: 20px;
     color: white;
     flex-direction: column;
+    cursor: pointer;
 }
 
 .quadarruma{
@@ -100,4 +101,8 @@ li a:hover {
     width: auto;
     height: auto;
     flex-wrap: wrap;
+}
+
+.algoai{
+    color: white;
 }
