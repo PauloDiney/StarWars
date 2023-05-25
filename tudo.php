@@ -21,7 +21,7 @@
         if ($_POST["personagem"]) {
             echo "<div class=nomeator>";
             echo "<h1>Personagem</h1>";
-            echo "<a href=index.php style=color:white;>Voltar</a>";
+            echo "<a href=index.php><input class=button type=submit name='personagem' style='--color:yellow;cursor:pointer;' value='Voltar'></a>";
             echo "</div>";
             $url = "https://swapi.dev/api/people/";
             $ch = curl_init($url);
@@ -161,8 +161,10 @@
             }
             echo "</div>";
         } else if ($_POST["filme"]) {
-            echo "<h1 style=color:white;>Filmes</h1>";
-            echo "<a href=index.php>Voltar</a>";
+            echo "<div class=nomeator>";
+            echo "<h1>Filmes</h1>";
+            echo "<a href=index.php><input class=button type=submit name='personagem' style='--color:yellow;cursor:pointer;' value='Voltar'></a>";
+            echo "</div>";
             $url = "https://swapi.dev/api/films";
             $ch = curl_init($url);
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -170,10 +172,14 @@
             $resultado = json_decode(curl_exec($ch));
             echo "<div class=quadarruma>";
             foreach ($resultado->results as $ator) {
-                echo "<div class=quad>";
+                echo "<form method=post action=filmes.php>";
+                echo "<button class=quad>";
+                echo "<input type=hidden name='filme' value='$ator->title'>";
+                echo "<input type=hidden name='link' value='$url'>";
                 echo "<img src='StarFotos/StarFilmes/$ator->title.png' width=auto height=150px>";
                 echo "<center><h1>" . $ator->title  . "</h1><br></center>";
-                echo "</div>";
+                echo "</button>";
+                echo "</form>";
             }
             echo "</div>";
         } else if ($_POST["planeta"]) {

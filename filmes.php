@@ -1,5 +1,5 @@
 <?php
-$atores = $_POST['personagem'];
+$filmes = $_POST['filme'];
 $url = $_POST['link'];
 $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -17,7 +17,7 @@ $resultado = json_decode(curl_exec($ch));
     <link href="https://fonts.cdnfonts.com/css/charter-itc-tt" rel="stylesheet">
     <!-- <link href="https://fonts.cdnfonts.com/css/death-star" rel="stylesheet"> -->
     <link rel="stylesheet" href="style.css">
-    <title><?php echo $atores ?></title>
+    <title><?php echo $filmes ?></title>
 </head>
 
 <body>
@@ -27,41 +27,45 @@ $resultado = json_decode(curl_exec($ch));
     <div class="algoai">
         <?php
         foreach ($resultado->results as $ator) {
-            if ($ator->name == $atores) {
+            if ($ator->title == $filmes) {
                 echo "<div class=imgator>";
-                echo "<img src='StarFotos/StarFotos/$ator->name.png'>";
+                echo "<img src='StarFotos/StarFilmes/$ator->title.png'>";
                 echo "</div>";
                 echo "<div class=nomeator>";
-                echo "<h1>" . $ator->name . "</h1>";
+                echo "<h1>" . $ator->title . "</h1>";
                 echo "</div>";
                 echo "<div class=atortudo>";
-                echo "Tamanho: " . $ator->height . "<br>";
-                echo "Peso: " . $ator->mass . "<br>";
-                echo "Cor do cabelo: " . $ator->hair_color . "<br>";
-                echo "Tom de pele: " . $ator->skin_color . "<br>";
-                echo "Cor do olho: " . $ator->eye_color . "<br>";
-                echo "Ano de aniversario: " . $ator->birth_year . "<br>";
-                echo "Genero: " . $ator->gender . "<br>";
-                $mundo = file_get_contents($ator->homeworld);
-                $mundo = json_decode($mundo);
-                $mundos = $mundo->name;
-                echo "Planeta onde nasceu:" . $mundos;
-                echo "<br><br><h1>Filmes que participou</h1>";
-                foreach ($ator->films as $filmes) {
-                    $filmes = file_get_contents($filmes);
-                    $filmes = json_decode($filmes);
-                    $titulo = $filmes->title;
-                    echo $titulo . "<br>";
+                echo "Tamanho: " . $ator->episode_id . "<br>";
+                echo "Peso: " . $ator->opening_crawl . "<br>";
+                echo "Cor do cabelo: " . $ator->director . "<br>";
+                echo "Tom de pele: " . $ator->producer . "<br>";
+                echo "Cor do olho: " . $ator->release_date . "<br>";
+                echo "<br><br><h1>Atores que participou</h1>";
+                foreach ($ator->characters as $caracteristicas) {
+                    $caracteristicas = file_get_contents($caracteristicas);
+                    $caracteristicas = json_decode($caracteristicas);
+                    $carac = $caracteristicas->name;
+                    echo $carac . "<br>";
+                }
+                if ($ator->planets == []) {
+                } else {
+                    echo "<br><h1>Planetas</h1>";
+                }
+                foreach ($ator->planets as $planets) {
+                    $planets = file_get_contents($planets);
+                    $planets = json_decode($planets);
+                    $planet = $planets->name;
+                    echo $planet . "<br>";
                 }
                 if ($ator->species == []) {
                 } else {
                     echo "<br><h1>Especies</h1>";
                 }
-                foreach ($ator->species as $especies) {
-                    $especies = file_get_contents($especies);
-                    $especies = json_decode($especies);
-                    $especie = $especies->name;
-                    echo $especie . "<br>";
+                foreach ($ator->species as $species) {
+                    $species = file_get_contents($species);
+                    $species = json_decode($species);
+                    $spe = $species->name;
+                    echo $spe . "<br>";
                 }
                 if ($ator->vehicles == []) {
                 } else {
@@ -84,7 +88,7 @@ $resultado = json_decode(curl_exec($ch));
                     echo $nave . "<br>";
                 }
                 echo "<form action='tudo.php' method='post'>
-                <input class=button type=submit name='personagem' style='--color:yellow;cursor:pointer;' value='Voltar'>
+                <input class=button type=submit name='filme' style='--color:yellow;cursor:pointer;' value='Voltar'>
                 </form>";
                 echo "</div>";
             } else {
