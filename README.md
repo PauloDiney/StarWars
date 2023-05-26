@@ -1,2 +1,2 @@
 # StarWars
-https://prod.liveshare.vsengsaas.visualstudio.com/join?17EC024F780E01C1535A6BC13349D1CD32BA
+https://prod.liveshare.vsengsaas.visualstudio.com/join?12B7E8E94B84EC11F00CAA7F33B614A06AA2
