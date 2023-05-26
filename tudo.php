@@ -29,132 +29,150 @@
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             $resultado = json_decode(curl_exec($ch));
             echo "<div class=quadarruma>";
+            $a = 0;
             foreach ($resultado->results as $ator) {
+                $a = $a + 1;
                 echo "<form method=post action=ator.php>";
                 echo "<button class=quad>";
                 echo "<img src='StarFotos/StarFotos/$ator->name.png' width=auto height=150px>";
                 echo "<input type=hidden name='personagem' value='$ator->name'>";
-                echo "<input type=hidden name='link' value='$url'>";
+                echo "<input type=text name='link' value='$url$a'>";
                 echo "<center><h1>" . $ator->name . "</h1><br></center>";
                 echo "</button>";
                 echo "</form>";
             }
             $url = "https://swapi.dev/api/people/?page=2";
+            $url2 = "https://swapi.dev/api/people/";
             $ch = curl_init($url);
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             $resultado = json_decode(curl_exec($ch));
             foreach ($resultado->results as $ator) {
+                $a = $a + 1;
                 echo "<form method=post action=ator.php>";
                 echo "<button class=quad>";
                 echo "<img src='StarFotos/StarFotos/$ator->name.png' width=auto height=150px>";
                 echo "<input type=hidden name=personagem value='$ator->name'>";
-                echo "<input type=hidden name='link' value='$url'>";
+                echo "<input type=hidden name='link' value='$url2$a'>";
                 echo "<center><h1>" . $ator->name . "</h1><br></center>";
                 echo "</button>";
                 echo "</form>";
             }
             $url = "https://swapi.dev/api/people/?page=3";
+            $url2 = "https://swapi.dev/api/people/";
             $ch = curl_init($url);
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             $resultado = json_decode(curl_exec($ch));
             foreach ($resultado->results as $ator) {
+                $a = $a + 1;
                 echo "<form method=post action=ator.php>";
                 echo "<button class=quad>";
                 echo "<img src='StarFotos/StarFotos/$ator->name.png' width=auto height=150px>";
                 echo "<input type=hidden name=personagem value='$ator->name'>";
-                echo "<input type=hidden name='link' value='$url'>";
+                echo "<input type=hidden name='link' value='$url2$a'>";
                 echo "<center><h1>" . $ator->name . "</h1><br></center>";
                 echo "</button>";
                 echo "</form>";
             }
             $url = "https://swapi.dev/api/people/?page=4";
+            $url2 = "https://swapi.dev/api/people/";
             $ch = curl_init($url);
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             $resultado = json_decode(curl_exec($ch));
             foreach ($resultado->results as $ator) {
+                $a = $a + 1;
                 echo "<form method=post action=ator.php>";
                 echo "<button class=quad>";
                 echo "<img src='StarFotos/StarFotos/$ator->name.png' width=auto height=150px>";
                 echo "<input type=hidden name=personagem value='$ator->name'>";
-                echo "<input type=hidden name='link' value='$url'>";
+                echo "<input type=hidden name='link' value='$url2$a'>";
                 echo "<center><h1>" . $ator->name . "</h1><br></center>";
                 echo "</button>";
                 echo "</form>";
             }
             $url = "https://swapi.dev/api/people/?page=5";
+            $url2 = "https://swapi.dev/api/people/";
             $ch = curl_init($url);
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             $resultado = json_decode(curl_exec($ch));
             foreach ($resultado->results as $ator) {
+                $a = $a + 1;
                 echo "<form method=post action=ator.php>";
                 echo "<button class=quad>";
                 echo "<img src='StarFotos/StarFotos/$ator->name.png' width=auto height=150px>";
                 echo "<input type=hidden name=personagem value='$ator->name'>";
-                echo "<input type=hidden name='link' value='$url'>";
+                echo "<input type=hidden name='link' value='$url2$a'>";
                 echo "<center><h1>" . $ator->name . "</h1><br></center>";
                 echo "</button>";
                 echo "</form>";
             }
             $url = "https://swapi.dev/api/people/?page=6";
+            $url2 = "https://swapi.dev/api/people/";
             $ch = curl_init($url);
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             $resultado = json_decode(curl_exec($ch));
             foreach ($resultado->results as $ator) {
+                $a = $a + 1;
                 echo "<form method=post action=ator.php>";
                 echo "<button class=quad>";
                 echo "<img src='StarFotos/StarFotos/$ator->name.png' width=auto height=150px>";
                 echo "<input type=hidden name=personagem value='$ator->name'>";
-                echo "<input type=hidden name='link' value='$url'>";
+                echo "<input type=hidden name='link' value='$url2$a'>";
                 echo "<center><h1>" . $ator->name . "</h1><br></center>";
                 echo "</button>";
                 echo "</form>";
             }
             $url = "https://swapi.dev/api/people/?page=7";
+            $url2 = "https://swapi.dev/api/people/";
             $ch = curl_init($url);
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             $resultado = json_decode(curl_exec($ch));
             foreach ($resultado->results as $ator) {
+                $a = $a + 1;
                 echo "<form method=post action=ator.php>";
                 echo "<button class=quad>";
                 echo "<img src='StarFotos/StarFotos/$ator->name.png' width=auto height=150px>";
                 echo "<input type=hidden name=personagem value='$ator->name'>";
-                echo "<input type=hidden name='link' value='$url'>";
+                echo "<input type=hidden name='link' value='$url2$a'>";
                 echo "<center><h1>" . $ator->name . "</h1><br></center>";
                 echo "</button>";
                 echo "</form>";
             }
             $url = "https://swapi.dev/api/people/?page=8";
+            $url2 = "https://swapi.dev/api/people/";
             $ch = curl_init($url);
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             $resultado = json_decode(curl_exec($ch));
             foreach ($resultado->results as $ator) {
+                $a = $a + 1;
                 echo "<form method=post action=ator.php>";
                 echo "<button class=quad>";
                 echo "<img src='StarFotos/StarFotos/$ator->name.png' width=auto height=150px>";
                 echo "<input type=hidden name=personagem value='$ator->name'>";
-                echo "<input type=hidden name='link' value='$url'>";
+                echo "<input type=hidden name='link' value='$url2$a'>";
                 echo "<center><h1>" . $ator->name . "</h1><br></center>";
                 echo "</button>";
                 echo "</form>";
             }
             $url = "https://swapi.dev/api/people/?page=9";
+            $url2 = "https://swapi.dev/api/people/";
             $ch = curl_init($url);
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             $resultado = json_decode(curl_exec($ch));
             foreach ($resultado->results as $ator) {
+                $a = $a + 1;
                 echo "<form method=post action=ator.php>";
                 echo "<button class=quad>";
                 echo "<img src='StarFotos/StarFotos/$ator->name.png' width=auto height=150px>";
                 echo "<input type=hidden name=personagem value='$ator->name'>";
-                echo "<input type=hidden name='link' value='$url'>";
+                echo "<input type=hidden name='link' value='$url2$a'>";
                 echo "<center><h1>" . $ator->name . "</h1><br></center>";
                 echo "</button>";
                 echo "</form>";

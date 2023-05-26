@@ -189,3 +189,8 @@ li a:hover {
     box-shadow: 0 0 10px var(--color), 0 0 30px var(--color),
       0 0 60px var(--color);
   }
+
+  .atortudo> font{
+    margin-left: 20px;
+    margin-right: 20px;
+  }

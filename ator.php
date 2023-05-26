@@ -5,6 +5,7 @@ $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 $resultado = json_decode(curl_exec($ch));
+$resultado = array($resultado);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,7 +27,7 @@ $resultado = json_decode(curl_exec($ch));
     </video>
     <div class="algoai">
         <?php
-        foreach ($resultado->results as $ator) {
+        foreach ($resultado as $ator) {
             if ($ator->name == $atores) {
                 echo "<div class=imgator>";
                 echo "<img src='StarFotos/StarFotos/$ator->name.png'>";
@@ -41,17 +42,19 @@ $resultado = json_decode(curl_exec($ch));
                 echo "Tom de pele: " . $ator->skin_color . "<br>";
                 echo "Cor do olho: " . $ator->eye_color . "<br>";
                 echo "Ano de aniversario: " . $ator->birth_year . "<br>";
-                echo "Genero: " . $ator->gender . "<br>";
+                echo "Genero: " . $ator->gender . "<br><br>";
                 $mundo = file_get_contents($ator->homeworld);
                 $mundo = json_decode($mundo);
                 $mundos = $mundo->name;
-                echo "Planeta onde nasceu:" . $mundos;
-                echo "<br><br><h1>Filmes que participou</h1>";
+                echo "<h1>Planeta onde nasceu</h1> <form method='post' action='planetas.php'><input class=button type=submit name='personagem' style='--color:yellow;cursor:pointer;' value='$mundos'></form>";
+                echo "<h1>Filmes que participou</h1>";
                 foreach ($ator->films as $filmes) {
+                    echo "<form method='post' action='filmes.php'><input type='hidden' name='link' value='$filmes'>";
                     $filmes = file_get_contents($filmes);
                     $filmes = json_decode($filmes);
                     $titulo = $filmes->title;
-                    echo $titulo . "<br>";
+                    echo "<input type=hidden name='filme' value='$titulo'>";
+                    echo "<input class=button type=submit style='--color:yellow;cursor:pointer;' value='$titulo'></form>";
                 }
                 if ($ator->species == []) {
                 } else {
@@ -61,7 +64,7 @@ $resultado = json_decode(curl_exec($ch));
                     $especies = file_get_contents($especies);
                     $especies = json_decode($especies);
                     $especie = $especies->name;
-                    echo $especie . "<br>";
+                    echo "<form method='post' action='especie.php'><input class=button type=submit name='personagem' style='--color:yellow;cursor:pointer;' value='$especie'></form>";
                 }
                 if ($ator->vehicles == []) {
                 } else {
@@ -71,7 +74,7 @@ $resultado = json_decode(curl_exec($ch));
                     $veiculo = file_get_contents($veiculo);
                     $veiculo = json_decode($veiculo);
                     $carro = $veiculo->name;
-                    echo $carro . "<br>";
+                    echo "<form method='post' action='carro.php'><input class=button type=submit name='personagem' style='--color:yellow;cursor:pointer;' value='$carro'></form>";
                 }
                 if ($ator->starships == []) {
                 } else {
@@ -81,9 +84,9 @@ $resultado = json_decode(curl_exec($ch));
                     $naves = file_get_contents($naves);
                     $naves = json_decode($naves);
                     $nave = $naves->name;
-                    echo $nave . "<br>";
+                    echo "<form method='post' action='nave.php'><input class=button type=submit name='personagem' style='--color:yellow;cursor:pointer;' value='$nave'></form>";
                 }
-                echo "<form action='tudo.php' method='post'>
+                echo "<br><form action='tudo.php' method='post'>
                 <input class=button type=submit name='personagem' style='--color:yellow;cursor:pointer;' value='Voltar'>
                 </form>";
                 echo "</div>";
