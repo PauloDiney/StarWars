@@ -43,10 +43,14 @@ $resultado = array($resultado);
                 echo "Cor do olho: " . $ator->eye_color . "<br>";
                 echo "Ano de aniversario: " . $ator->birth_year . "<br>";
                 echo "Genero: " . $ator->gender . "<br><br>";
+                echo "<h1>Planeta onde nasceu</h1>";
+                echo "<form method='post' action='planetas.php'><input type=hidden name=link value='$ator->homeworld'>";
                 $mundo = file_get_contents($ator->homeworld);
                 $mundo = json_decode($mundo);
                 $mundos = $mundo->name;
-                echo "<h1>Planeta onde nasceu</h1> <form method='post' action='planetas.php'><input class=button type=submit name='personagem' style='--color:yellow;cursor:pointer;' value='$mundos'></form>";
+                echo "<input type=hidden name='personagem' value='$mundos'>";
+                echo "<input class=button type=submit name='personagem' style='--color:yellow;cursor:pointer;' value='$mundos'>
+                </form>";
                 echo "<h1>Filmes que participou</h1>";
                 foreach ($ator->films as $filmes) {
                     echo "<form method='post' action='filmes.php'><input type='hidden' name='link' value='$filmes'>";
