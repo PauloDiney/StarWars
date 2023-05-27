@@ -36,7 +36,7 @@
                 echo "<button class=quad>";
                 echo "<img src='StarFotos/StarFotos/$ator->name.png' width=auto height=150px>";
                 echo "<input type=hidden name='personagem' value='$ator->name'>";
-                echo "<input type=text name='link' value='$url$a'>";
+                echo "<input type=hidden name='link' value='$url$a'>";
                 echo "<center><h1>" . $ator->name . "</h1><br></center>";
                 echo "</button>";
                 echo "</form>";
@@ -48,6 +48,9 @@
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             $resultado = json_decode(curl_exec($ch));
             foreach ($resultado->results as $ator) {
+                if($a == 16){
+                    $a = $a + 1;
+                }
                 $a = $a + 1;
                 echo "<form method=post action=ator.php>";
                 echo "<button class=quad>";

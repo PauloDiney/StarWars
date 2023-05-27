@@ -61,30 +61,36 @@ $resultado = array($resultado);
                     echo "<br><h1>Especies</h1>";
                 }
                 foreach ($ator->species as $especies) {
+                    echo "<form method='post' action='especie.php'><input type='hidden' name='link' value='$especies'>";
                     $especies = file_get_contents($especies);
                     $especies = json_decode($especies);
                     $especie = $especies->name;
-                    echo "<form method='post' action='especie.php'><input class=button type=submit name='personagem' style='--color:yellow;cursor:pointer;' value='$especie'></form>";
+                    echo "<input type=hidden name='especie' value='$especie'>";
+                    echo "<input class=button type=submit name='personagem' style='--color:yellow;cursor:pointer;' value='$especie'></form>";
                 }
                 if ($ator->vehicles == []) {
                 } else {
                     echo "<br><h1>Veiculos</h1>";
                 }
                 foreach ($ator->vehicles as $veiculo) {
+                    echo "<form method='post' action='carro.php'><input type='hidden' name='link' value='$veiculo'>";
                     $veiculo = file_get_contents($veiculo);
                     $veiculo = json_decode($veiculo);
                     $carro = $veiculo->name;
-                    echo "<form method='post' action='carro.php'><input class=button type=submit name='personagem' style='--color:yellow;cursor:pointer;' value='$carro'></form>";
+                    echo "<input type=hidden name='carro' value='$carro'>";
+                    echo "<input class=button type=submit name='personagem' style='--color:yellow;cursor:pointer;' value='$carro'></form>";
                 }
                 if ($ator->starships == []) {
                 } else {
                     echo "<br><h1>Naves</h1>";
                 }
                 foreach ($ator->starships as $naves) {
+                    echo "<form method='post' action='nave.php'><input type='hidden' name='link' value='$naves'>";
                     $naves = file_get_contents($naves);
                     $naves = json_decode($naves);
                     $nave = $naves->name;
-                    echo "<form method='post' action='nave.php'><input class=button type=submit name='personagem' style='--color:yellow;cursor:pointer;' value='$nave'></form>";
+                    echo "<input type=hidden name='nave' value='$nave'>";
+                    echo "<input class=button type=submit name='personagem' style='--color:yellow;cursor:pointer;' value='$nave'></form>";
                 }
                 echo "<br><form action='tudo.php' method='post'>
                 <input class=button type=submit name='personagem' style='--color:yellow;cursor:pointer;' value='Voltar'>
