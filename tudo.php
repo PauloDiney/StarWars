@@ -304,7 +304,6 @@
             echo "<a href=index.php><input class=button type=submit name='personagem' style='--color:yellow;cursor:pointer;' value='Voltar'></a>";
             echo "</div>";
             $url = "https://swapi.dev/api/species";
-            $url2 = "https://swapi.dev/api/species/";
             $ch = curl_init($url);
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -312,12 +311,15 @@
             $a = 0;
             echo "<div class=quadarruma>";
             foreach ($resultado->results as $ator) {
+                $url2 = $ator->url;
                 $a = $a + 1;
                 echo "<form method=post action=especie.php>";
                 echo "<button class=quad>";
-                echo "<img src='$ator->name.png' width=150px height=150px>";
-                echo "<input type=hidden name=personagem value=" . $ator->name . ">";
-                echo "<input type=hidden name='link' value='$url2$a'>";
+                echo "<img src='StarFotos/StarEspecies/$ator->name.png' width=auto height=150px>";
+                ?>
+                <input type=text name='personagem' value="<?php echo "".$ator->name."";?>">
+                <?php
+                echo "<input type=hidden name='link' value='$url2'>";
                 echo "<center><h1>" . $ator->name . "</h1><br></center>";
                 echo "</button>";
                 echo "</form>";
@@ -329,12 +331,15 @@
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             $resultado = json_decode(curl_exec($ch));
             foreach ($resultado->results as $ator) {
+                $url2 = $ator->url;
                 $a = $a + 1;
                 echo "<form method=post action=especie.php>";
                 echo "<button class=quad>";
-                echo "<img src='$ator->name.png' width=150px height=150px>";
-                echo "<input type=hidden name=personagem value=" . $ator->name . ">";
-                echo "<input type=hidden name='link' value='$url2$a'>";
+                echo "<img src='StarFotos/StarEspecies/$ator->name.png' width=auto height=150px>";
+                ?>
+                <input type="text" name="personagem" value="<?php echo "".$ator->name."";?>">
+                <?php
+                echo "<input type=hidden name='link' value='$url2'>";
                 echo "<center><h1>" . $ator->name . "</h1><br></center>";
                 echo "</button>";
                 echo "</form>";
@@ -346,12 +351,15 @@
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             $resultado = json_decode(curl_exec($ch));
             foreach ($resultado->results as $ator) {
+                $url2 = $ator->url;
                 $a = $a + 1;
                 echo "<form method=post action=especie.php>";
                 echo "<button class=quad>";
-                echo "<img src='$ator->name.png' width=150px height=150px>";
-                echo "<input type=hidden name=personagem value=" . $ator->name . ">";
-                echo "<input type=hidden name='link' value='$url2$a'>";
+                echo "<img src='StarFotos/StarEspecies/$ator->name.png' width=auto height=150px>";
+                ?>
+                <input type=text name="personagem" value="<?php echo "".$ator->name."";?>">
+                <?php
+                echo "<input type=hidden name='link' value='$url2'>";
                 echo "<center><h1>" . $ator->name . "</h1><br></center>";
                 echo "</button>";
                 echo "</form>";
@@ -363,12 +371,15 @@
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             $resultado = json_decode(curl_exec($ch));
             foreach ($resultado->results as $ator) {
+                $url2 = $ator->url;
                 $a = $a + 1;
                 echo "<form method=post action=especie.php>";
                 echo "<button class=quad>";
-                echo "<img src='$ator->name.png' width=150px height=150px>";
-                echo "<input type=hidden name='personagem' value=" . $ator->name . ">";
-                echo "<input type=hidden name='link' value='$url2$a'>";
+                echo "<img src='StarFotos/StarEspecies/$ator->name.png' width=auto height=150px>";
+                ?>
+                <input type=text name="personagem" value="<?php echo "".$ator->name."";?>">
+                <?php
+                echo "<input type=hidden name='link' value='$url2'>";
                 echo "<center><h1>" . $ator->name . "</h1><br></center>";
                 echo "</button>";
                 echo "</form>";
@@ -388,30 +399,13 @@
             echo "<div class=quadarruma>";
             $a = 0;
             foreach ($resultado->results as $ator) {
-                if($a == 0){
-                    $a = $a + 3;
-                }
-                if($a == 4){
-                    $a = $a + 1;
-                }
-                if($a == 8){
-                    $a = $a + 5;
-                }
-                if($a == 14){
-                    $a = $a + 1;
-                }
-                if($a == 16){
-                    $a = $a + 1;
-                }
-                if($a == 20){
-                    $a = $a + 3;
-                }
+                $url2 = $ator->url;
                 $a = $a + 1;
                 echo "<form method=post action=carro.php>";
                 echo "<button class=quad>";
-                echo "<img src='$ator->name.png' width=150px height=150px>";
+                echo "<img src='StarFotos/StarNaves/$ator->name.png' width=auto height=150px>";
                 echo "<input type=hidden name='personagem' value='$ator->name'>";
-                echo "<input type=hidden name='link' value='$url2$a'>";
+                echo "<input type=hidden name='link' value='$url2'>";
                 echo "<center><h1>" . $ator->name . "</h1><br></center>";
                 echo "</button>";
                 echo "</form>";
@@ -423,21 +417,12 @@
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             $resultado = json_decode(curl_exec($ch));
             foreach ($resultado->results as $ator) {
-                if($a == 26){
-                    $a = $a + 3;
-                }
-                if($a == 30){
-                    $a = $a + 2;
-                }
-                if($a == 38){
-                    $a = $a + 3;
-                }
-                $a = $a + 1;
+                $url2 = $ator->url;
                 echo "<form method=post action=carro.php>";
                 echo "<button class=quad>";
-                echo "<img src='$ator->name.png' width=150px height=150px>";
+                echo "<img src='StarFotos/StarNaves/$ator->name.png' width=auto height=150px>";
                 echo "<input type=hidden name='personagem' value='$ator->name'>";
-                echo "<input type=hidden name='link' value='$url2$a'>";
+                echo "<input type=hidden name='link' value='$url2'>";
                 echo "<center><h1>" . $ator->name . "</h1><br></center>";
                 echo "</button>";
                 echo "</form>";
@@ -449,18 +434,12 @@
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             $resultado = json_decode(curl_exec($ch));
             foreach ($resultado->results as $ator) {
-                if($a == 46){
-                    $a = $a + 3;
-                }
-                if($a == 51){
-                    $a = $a + 2;
-                }
-                $a = $a + 1;
+                $url2 = $ator->url;
                 echo "<form method=post action=carro.php>";
                 echo "<button class=quad>";
-                echo "<img src='$ator->name.png' width=150px height=150px>";
+                echo "<img src='StarFotos/StarNaves/$ator->name.png' width=auto height=150px>";
                 echo "<input type=hidden name='personagem' value='$ator->name'>";
-                echo "<input type=hidden name='link' value='$url2$a'>";
+                echo "<input type=hidden name='link' value='$url2'>";
                 echo "<center><h1>" . $ator->name . "</h1><br></center>";
                 echo "</button>";
                 echo "</form>";
@@ -472,27 +451,12 @@
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             $resultado = json_decode(curl_exec($ch));
             foreach ($resultado->results as $ator) {
-                if($a == 57){
-                    $a = $a + 2;
-                }
-                if($a == 60){
-                    $a = $a + 1;
-                }
-                if($a == 62){
-                    $a = $a + 4;
-                }
-                if($a == 67){
-                    $a = $a + 1;
-                }
-                if($a == 73){
-                    $a = $a + 2;
-                }
-                $a = $a + 1;
+                $url2 = $ator->url;
                 echo "<form method=post action=carro.php>";
                 echo "<button class=quad>";
-                echo "<img src='$ator->name.png' width=150px height=150px>";
+                echo "<img src='StarFotos/StarNaves/$ator->name.png' width=auto height=150px>";
                 echo "<input type=hidden name='personagem' value='$ator->name'>";
-                echo "<input type=hidden name='link' value='$url2$a'>";
+                echo "<input type=hidden name='link' value='$url2'>";
                 echo "<center><h1>" . $ator->name . "</h1><br></center>";
                 echo "</button>";
                 echo "</form>";
@@ -515,7 +479,7 @@
                 $a = $a + 1;
                 echo "<form method=post action=nave.php>";
                 echo "<button class=quad>";
-                echo "<img src='$ator->name.png' width=150px height=150px>";
+                echo "<img src='StarFotos/StarVeiculos/$ator->name.png' width=auto height=150px>";
                 echo "<input type=hidden name='personagem' value='$ator->name'>";
                 echo "<input type=hidden name='link' value='$url2'>";
                 echo "<center><h1>" . $ator->name . "</h1><br></center>";
@@ -533,7 +497,7 @@
                 $a = $a + 1;
                 echo "<form method=post action=nave.php>";
                 echo "<button class=quad>";
-                echo "<img src='$ator->name.png' width=150px height=150px>";
+                echo "<img src='StarFotos/StarVeiculos/$ator->name.png' width=auto height=150px>";
                 echo "<input type=hidden name='personagem' value='$ator->name'>";
                 echo "<input type=hidden name='link' value='$url2'>";
                 echo "<center><h1>" . $ator->name . "</h1><br></center>";
@@ -551,7 +515,7 @@
                 $a = $a + 1;
                 echo "<form method=post action=nave.php>";
                 echo "<button class=quad>";
-                echo "<img src='$ator->name.png' width=150px height=150px>";
+                echo "<img src='StarFotos/StarVeiculos/$ator->name.png' width=auto height=150px>";
                 echo "<input type=hidden name='personagem' value='$ator->name'>";
                 echo "<input type=hidden name='link' value='$url2'>";
                 echo "<center><h1>" . $ator->name . "</h1><br></center>";
@@ -569,7 +533,7 @@
                 $a = $a + 1;
                 echo "<form method=post action=nave.php>";
                 echo "<button class=quad>";
-                echo "<img src='$ator->name.png' width=150px height=150px>";
+                echo "<img src='StarFotos/StarVeiculos/$ator->name.png' width=auto height=150px>";
                 echo "<input type=hidden name='personagem' value='$ator->name'>";
                 echo "<input type=hidden name='link' value='$url2'>";
                 echo "<center><h1>" . $ator->name . "</h1><br></center>";

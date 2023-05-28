@@ -18,7 +18,7 @@ $resultado = array($resultado);
     <link href="https://fonts.cdnfonts.com/css/charter-itc-tt" rel="stylesheet">
     <!-- <link href="https://fonts.cdnfonts.com/css/death-star" rel="stylesheet"> -->
     <link rel="stylesheet" href="style.css">
-    <title><?php echo $atores ?></title>
+    <title><?php echo "$atores" ?></title>
 </head>
 
 <body>
